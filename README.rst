@@ -1,9 +1,9 @@
 ``encodingcontext`` --- A bad idea about the default encoding
 =============================================================
 
-    Although practicality beats purity.
-    Errors should never pass silently.
-    Unless explicitly silenced.
+    | Although practicality beats purity.
+    | Errors should never pass silently.
+    | Unless explicitly silenced.
 
     --- Zen of Python
 
