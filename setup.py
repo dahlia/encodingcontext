@@ -1,14 +1,29 @@
 from __future__ import with_statement
 
 from distutils.core import setup
+import re
 
 
 def readme():
     try:
         with open('README.rst') as f:
-            return f.read()
+            readme = f.read()
     except IOError:
         return
+    return re.sub(
+        r'''
+        (?P<colon> : \n{2,})?
+        \.\. [ ] code-block:: \s+ [^\n]+ \n
+        [^ \t]* \n
+        (?P<block>
+            (?: (?: (?: \t | [ ]{3}) [^\n]* | [ \t]* ) \n)+
+        )
+        ''',
+        lambda m: (':' + m.group('colon') if m.group('colon') else '') +
+                  '\n'.join(' ' + l for l in m.group('block').splitlines()) +
+                  '\n\n',
+        readme, 0, re.VERBOSE
+    )
 
 
 setup(
