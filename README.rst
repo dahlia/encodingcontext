@@ -17,8 +17,8 @@ explicitly scoped:
    ...
    '\xc7\xd1\xb1\xdb'
 
-Of course it has several shortcomigs, and the most critical one is:
+Of course it has several shortcomings, and the most critical one is:
 using it within ``thread``, ``threading``, ``greenlet``, ``tasklet``, etc
-probably brokes its scoping.  If Python had dynamic scoping and default
+probably breaks its scoping.  If Python had dynamic scoping and default
 encoding was defined as dynamically scoped variable, we might have more
 convenient way to code between Unicode--byte strings.
